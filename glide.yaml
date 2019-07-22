@@ -1,0 +1,10 @@
+package: bitbucket.org/snapmartinc/httpclient
+import:
+- package: bitbucket.org/snapmartinc/logger
+  version: ^1.6.0
+- package: bitbucket.org/snapmartinc/trace
+  version: ">=1.2, <3"
+- package: github.com/prometheus/client_golang
+testImport:
+- package: github.com/stretchr/testify
+  version: ~1.2
