@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"httpclient/net/profile"
+	"bitbucket.org/snapmartinc/httpclient/net/profile"
 	"net/http"
 	"net/http/httptest"
 	"testing"

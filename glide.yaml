@@ -5,6 +5,7 @@ import:
 - package: bitbucket.org/snapmartinc/trace
   version: ">=1.2, <3"
 - package: github.com/prometheus/client_golang
+- package: github.com/opentracing/opentracing-go
 testImport:
 - package: github.com/stretchr/testify
   version: ~1.2

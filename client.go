@@ -1,8 +1,8 @@
 package httpclient
 
 import (
+	"bitbucket.org/snapmartinc/httpclient/middleware"
 	"bitbucket.org/snapmartinc/logger"
-	"httpclient/middleware"
 	"net/http"
 	"time"
 )

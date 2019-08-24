@@ -1,8 +1,8 @@
 package middleware
 
 import (
+	"bitbucket.org/snapmartinc/httpclient/net"
 	"encoding/json"
-	"httpclient/net"
 	"io/ioutil"
 	"net/http"
 )
