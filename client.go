@@ -12,13 +12,18 @@ func NewDefaultHttpClient(defaultEntry logger.Entry, timeout time.Duration) *htt
 	c := &http.Client{
 		Timeout: timeout,
 	}
-
 	c.Transport = middleware.WithMiddleware(
 		c.Transport,
 		middleware.NewResponseLogger(defaultEntry),
 		middleware.NewRequestLogger(defaultEntry),
-		middleware.NewNewrelicApiGateway(),
+		middleware.NewNewrelicApiGateway(middleware.NewURLFormatFunc()),
 	)
-
 	return c
+}
+
+func NewHttpClientWithMiddlewares(timeout time.Duration, middlewares ...middleware.Middleware) *http.Client {
+	return &http.Client{
+		Timeout:   timeout,
+		Transport: middleware.WithMiddleware(http.DefaultTransport, middlewares...),
+	}
 }

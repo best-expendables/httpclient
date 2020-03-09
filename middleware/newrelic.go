@@ -8,29 +8,14 @@ import (
 	newrelic "github.com/newrelic/go-agent"
 )
 
-type (
-	// NewrelicRequestFormatter custom URL parsing
-	NewrelicRequestFormatter interface {
-		ToURL(request *http.Request) string
-	}
+type URLFormatFunc func(r *http.Request) string
 
-	// Newrelic middleware for HTTP external request
-	Newrelic struct {
-		formatter NewrelicRequestFormatter
-	}
-
-	// NewrelicRequestFormatterFunc implements NewrelicRequestFormatter interface
-	NewrelicRequestFormatterFunc func(r *http.Request) string
-)
-
-// NewNewrelic formatter could be nil, than URL will be parsed via newrelic
-func NewNewrelic(formatter NewrelicRequestFormatter) *Newrelic {
-	return &Newrelic{formatter: formatter}
+type Newrelic struct {
+	urlFormatter URLFormatFunc
 }
 
-// NewNewrelicApiGateway should be used for the calls through API Gateway
-func NewNewrelicApiGateway() *Newrelic {
-	return NewNewrelic(NewrelicRequestFormatterFunc(func(r *http.Request) string {
+func NewURLFormatFunc() URLFormatFunc {
+	return func(r *http.Request) string {
 		path := strings.Trim(r.URL.Path, "/")
 		paths := strings.SplitN(path, "/", 3)
 		url := r.URL.Scheme + "://" + r.URL.Host
@@ -39,7 +24,11 @@ func NewNewrelicApiGateway() *Newrelic {
 			url = url + "." + paths[0] + "." + paths[1]
 		}
 		return url
-	}))
+	}
+}
+
+func NewNewrelicApiGateway(urlFormatter URLFormatFunc) *Newrelic {
+	return &Newrelic{urlFormatter: urlFormatter}
 }
 
 func (r Newrelic) RoundTripper(next http.RoundTripper) http.RoundTripper {
@@ -47,8 +36,8 @@ func (r Newrelic) RoundTripper(next http.RoundTripper) http.RoundTripper {
 		txn := newrelic.FromContext(request.Context())
 		if txn != nil {
 			segment := newrelic.StartExternalSegment(txn, request)
-			if r.formatter != nil {
-				segment.URL = r.formatter.ToURL(request)
+			if r.urlFormatter != nil {
+				segment.URL = r.urlFormatter(request)
 			}
 			defer func() {
 				if err := segment.End(); err != nil {
@@ -61,8 +50,4 @@ func (r Newrelic) RoundTripper(next http.RoundTripper) http.RoundTripper {
 		}
 		return next.RoundTrip(request)
 	})
-}
-
-func (fn NewrelicRequestFormatterFunc) ToURL(r *http.Request) string {
-	return fn(r)
 }
