@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"bitbucket.org/snapmartinc/trace"
+	"github.com/best-expendables/trace"
 	"net/http"
 	"net/http/httptest"
 	"testing"

@@ -3,7 +3,7 @@
 ### Install
 ```yaml
 import:
-- package: bitbucket.org/snapmartinc/httpclient
+- package: github.com/best-expendables/httpclient
   version: x.x.x
 ```
 
@@ -43,8 +43,8 @@ Or for some cases you can get the report from response e.g.:
 package main(
 	"net/http"
     
-	"bitbucket.org/snapmartinc/httpclient/middleware"
-	"bitbucket.org/snapmartinc/httpclient/net/profile"
+	"github.com/best-expendables/httpclient/middleware"
+	"github.com/best-expendables/httpclient/net/profile"
 )
 	
 
@@ -70,8 +70,8 @@ package main
 import (
 	"net/http"
 
-	"bitbucket.org/snapmartinc/httpclient/middleware"
-	log "bitbucket.org/snapmartinc/logger"
+	"github.com/best-expendables/httpclient/middleware"
+	log "github.com/best-expendables/logger"
 )
 
 func main() {
@@ -105,8 +105,8 @@ package main
 import (
 	"net/http"
 
-	"bitbucket.org/snapmartinc/httpclient/middleware"
-	log "bitbucket.org/snapmartinc/logger"
+	"github.com/best-expendables/httpclient/middleware"
+	log "github.com/best-expendables/logger"
 )
 
 func main() {

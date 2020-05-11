@@ -6,8 +6,8 @@ import (
 	"context"
 	"net/http/httptest"
 
-	"bitbucket.org/snapmartinc/httpclient/middleware"
-	log "bitbucket.org/snapmartinc/logger"
+	"github.com/best-expendables/httpclient/middleware"
+	log "github.com/best-expendables/logger"
 	"net/url"
 	"strings"
 )

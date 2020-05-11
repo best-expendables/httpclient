@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"testing"
 
-	"bitbucket.org/snapmartinc/httpclient"
+	"github.com/best-expendables/httpclient"
 	"github.com/stretchr/testify/assert"
 )
 

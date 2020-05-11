@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	"bitbucket.org/snapmartinc/trace"
+	"github.com/best-expendables/trace"
 )
 
 // RequestID

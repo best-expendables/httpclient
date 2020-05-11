@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	log "bitbucket.org/snapmartinc/logger"
+	log "github.com/best-expendables/logger"
 	"bytes"
 	"context"
 	"io/ioutil"

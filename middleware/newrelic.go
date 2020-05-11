@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	log "bitbucket.org/snapmartinc/logger"
+	log "github.com/best-expendables/logger"
 	newrelic "github.com/newrelic/go-agent"
 )
 

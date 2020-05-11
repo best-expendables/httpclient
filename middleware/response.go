@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"bitbucket.org/snapmartinc/httpclient/net"
+	"github.com/best-expendables/httpclient/net"
 	"bytes"
 	"io/ioutil"
 	"net/http"

@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"bitbucket.org/snapmartinc/logger"
+	"github.com/best-expendables/logger"
 	"github.com/stretchr/testify/assert"
 )
 

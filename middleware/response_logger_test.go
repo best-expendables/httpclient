@@ -9,7 +9,7 @@ import (
 
 	"strings"
 
-	log "bitbucket.org/snapmartinc/logger"
+	log "github.com/best-expendables/logger"
 	"github.com/stretchr/testify/suite"
 )
 

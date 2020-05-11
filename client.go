@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"time"
 
-	"bitbucket.org/snapmartinc/httpclient/middleware"
-	"bitbucket.org/snapmartinc/logger"
+	"github.com/best-expendables/httpclient/middleware"
+	"github.com/best-expendables/logger"
 )
 
 func NewDefaultHttpClient(defaultEntry logger.Entry, timeout time.Duration) *http.Client {

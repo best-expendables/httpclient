@@ -3,7 +3,7 @@ package middleware
 import (
 	"net/http"
 
-	log "bitbucket.org/snapmartinc/logger"
+	log "github.com/best-expendables/logger"
 )
 
 // RequestLogger create log for request
